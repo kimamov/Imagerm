@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'input'>;
+
+const { name, type, ...inputProps } = Astro.props;
+---
+
+<div
+  class="input border-2 rounded-md border-black overflow-hidden mb-4 bg-white"
+>
+  <slot />
+  <input class="py-2 px-4 w-full" name={name} type={type} />
+</div>
