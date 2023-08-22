@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'input'>;
+
+const inputAttributes = Astro.props;
+---
+
+<div
+  class="relative input border-2 rounded-md border-black overflow-hidden mb-4 bg-white"
+>
+  <div class="label-wrapper">
+    <slot />
+  </div>
+  <input class:list={['py-2 px-4 w-full']} {...inputAttributes} />
+</div>

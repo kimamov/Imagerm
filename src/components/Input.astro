@@ -7,8 +7,10 @@ const inputAttributes = Astro.props;
 ---
 
 <div
-  class="input border-2 rounded-md border-black overflow-hidden mb-4 bg-white"
+  class="relative mb-2 inpunt"
 >
-  <slot />
-  <input class:list={['py-2 px-4 w-full']} {...inputAttributes} />
+  <label class="w-full block" class="label-wrapper">
+    <slot />
+    <input class:list={['w-full border-black border-2 rounded-md overflow-hidden mt-1 px-2 py-1']} {...inputAttributes} />
+  </div>
 </div>
