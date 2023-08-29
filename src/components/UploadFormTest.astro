@@ -3,9 +3,7 @@ import Input from './Input.astro';
 ---
 
   <form class="bg-slate-50 py-8 px-4 rounded-md upload-form" method="POST" action="http://localhost:8080">
-
     <Input name="title" type="text">Image Title</Input>
-    <Input name="imagefile" type="file">Bilder</Input>
     <button class="bg-purple-700 py-1 px-4 mt-2 text-white rounded-md uppercase">submit</button>
   </form>
 
@@ -14,7 +12,7 @@ import Input from './Input.astro';
     e.preventDefault();
     console.log(e);
     const formData = new FormData(e.target);
-    fetch('http://localhost:5000/imagetest', {
+    fetch('http://localhost:5000/formtest', {
       method: 'POST',
       body: formData,
     }).then((res) => {
