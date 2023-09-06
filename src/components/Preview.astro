@@ -1,0 +1,20 @@
+---
+const images =
+    (await fetch("http://localhost:5000/image")
+        .then((res) => res.json())
+        .catch((e) => console.log(e))) ?? [];
+---
+
+<div class="preview container mx-auto py-4">
+    <div class="image-grid grid grid-cols-4 gap-4">
+        {
+            images.map((image: any) => (
+                <article class="bg-gray-200 rounded-md overflow-hidden">
+                    <pre>{JSON.stringify(image)}</pre>
+                    <img src={image.url} />
+                    <h4>{image.title}</h4>
+                </article>
+            ))
+        }
+    </div>
+</div>

@@ -1,7 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import UploadForm from '../components/UploadForm.astro';
-import UploadFormTest from '../components/UploadFormTest.astro';
+import Layout from "../layouts/Layout.astro";
+import UploadForm from "../components/UploadForm.astro";
+import UploadFormTest from "../components/UploadFormTest.astro";
+import Preview from "../components/Preview.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -10,9 +11,10 @@ import UploadFormTest from '../components/UploadFormTest.astro';
       <h1>hero section</h1>
     </section>
     <section class="upload">
-      <!-- <UploadForm /> -->
-      <UploadFormTest />
+      <UploadForm />
+      <!-- <UploadFormTest /> -->
     </section>
+    <Preview />
   </main>
 </Layout>
 

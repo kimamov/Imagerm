@@ -1,31 +1,40 @@
 ---
-import Input from './Input.astro';
+import Input from "./Input.astro";
 ---
 
-  <form class="bg-slate-50 py-8 px-4 rounded-md upload-form" method="POST" action="http://localhost:8080">
-
-    <Input name="title" type="text">Image Title</Input>
-    <Input name="imagefile" type="file">Bilder</Input>
-    <button class="bg-purple-700 py-1 px-4 mt-2 text-white rounded-md uppercase">submit</button>
-  </form>
+<form
+  class="bg-slate-50 py-8 px-4 rounded-md upload-form"
+  method="POST"
+  action="http://localhost:8080"
+>
+  <Input name="title" type="text">Image Title</Input>
+  <Input name="imagefile" type="file">Bilder</Input>
+  <button class="bg-purple-700 py-1 px-4 mt-2 text-white rounded-md uppercase"
+    >submit</button
+  >
+</form>
 
 <script>
-  document.querySelector('form.upload-form')?.addEventListener('submit', (e: any) => {
-    e.preventDefault();
-    console.log(e);
-    const formData = new FormData(e.target);
-    fetch('http://localhost:5000/imagetest', {
-      method: 'POST',
-      body: formData,
-    }).then((res) => {
-      console.log(res);
-      res.json().then((data) => {
-        console.log(data);
+  document
+    .querySelector("form.upload-form")
+    ?.addEventListener("submit", (e: any) => {
+      e.preventDefault();
+      console.log(e);
+      const formData = new FormData(e.target);
+      fetch("http://localhost:5000/image", {
+        method: "POST",
+        body: formData,
       })
-    }).catch((err) => {
-      console.log(err);
-    })
-  });
+        .then((res) => {
+          console.log(res);
+          res.json().then((data) => {
+            console.log(data);
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
 </script>
 
 <style>
